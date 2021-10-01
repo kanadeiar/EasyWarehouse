@@ -7,7 +7,9 @@
 
 <p>Просмотр полной детальной информации по месту хранения товаров</p>
 
-<a class="btn btn-info mb-4" asp-controller="Home" asp-action="Places">Обратно к просмотру мест хранения товаров</a>
+<p>Фильтрация, сортировка и пагинация товаров</p>
+
+<a class="btn btn-info mb-4" asp-controller="Home" asp-action="Places">Просмотр мест хранения товаров</a>
 
 <dl class="row">
     <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Name)</dt>
@@ -45,7 +47,7 @@
                 <td>@product.Name</td>
                 <td>@product.DateTime</td>
                 <td>@product.Count</td>
-                <td><a asp-controller="Home" asp-action="ProductDetails" asp-route-id="@product.Id">Просмотр</a></td>
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="ProductDetails" asp-route-id="@product.Id">Просмотр</a></td>
             </tr>
         }
     </tbody>

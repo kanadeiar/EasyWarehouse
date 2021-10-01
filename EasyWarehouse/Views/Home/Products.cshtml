@@ -30,7 +30,7 @@
                 <td>@product.PlaceName</td>
                 <td>@product.DateTime</td>
                 <td>@product.Count</td>
-                <td><a asp-controller="Home" asp-action="ProductDetails" asp-route-id="@product.Id">Просмотр</a></td>
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="ProductDetails" asp-route-id="@product.Id">Просмотр</a></td>
             </tr>
         }
     </tbody>

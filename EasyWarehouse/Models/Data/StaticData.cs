@@ -141,6 +141,7 @@ namespace EasyWarehouse.Models.Data
             {
                 Id = product.Id,
                 Name = productTupes[product.ProductTypeId - 1].Name,
+                PlaceId = product.PlaceId,
                 PlaceName = places[product.PlaceId - 1].Name,
                 DateTime = product.DateTime,
                 Volume = productTupes[product.ProductTypeId - 1].Volume,

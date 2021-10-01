@@ -238,5 +238,39 @@ namespace EasyWarehouse.Models.Data
             }
             return result;
         }
+
+        public static IEnumerable<CountsInfoWebModel> ToCountsWebModel (this IEnumerable<ProductType> productTypes)
+        {
+            var result = productTypes.Select(p => new CountsInfoWebModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+            }).ToList();
+            foreach (var product in result)
+            {
+                var typeProducts = Products.Where(pr => pr.ProductTypeId == product.Id).ToWebModel();
+                product.Volume = typeProducts.Sum(p => p.Volume);
+                product.Count = typeProducts.Sum(p => p.Count);
+                product.Size = typeProducts.Count();
+            }
+            var maxVolume = result.Max(p => p.Volume);
+            var maxCount = result.Max(p => p.Count);
+            var maxSize = result.Max(p => p.Size);
+            foreach (var product in result)
+            {
+                product.VolumePercent = Convert.ToInt32((float)product.Volume / (float)maxVolume * 100.0f);
+                product.CountPercent = Convert.ToInt32(product.Count / (float)maxCount * 100.0f);
+                product.SizePercent = Convert.ToInt32(product.Size / (float)maxSize * 100.0f);
+                if (product.Size == 0)
+                    product.Status = "Отсутствует товар на складе";
+                else if (product.Size >= (maxSize * 0.8))
+                    product.Status = "Избыток товара на складе";
+                else if (product.Size <= (maxSize * 0.2))
+                    product.Status = "Недостаток товара на складе";
+                else
+                    product.Status = "Товар есть на складе";
+            }
+            return result.OrderBy(p => p.Name);
+        }
     }
 }

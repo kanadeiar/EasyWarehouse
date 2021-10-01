@@ -51,7 +51,8 @@ namespace EasyWarehouse.Controllers
 
         public IActionResult CountsInfo()
         {
-            return View();
+            var counts = StaticData.ProductTypes.ToCountsWebModel();
+            return View(counts);
         }
 
         public IActionResult HistoryInfo()

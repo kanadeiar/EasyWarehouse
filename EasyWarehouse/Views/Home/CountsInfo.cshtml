@@ -1,7 +1,32 @@
-﻿@{
+﻿@model IEnumerable<EasyWarehouse.WebModels.CountsInfoWebModel>
+@{
     ViewBag.Title = "Количество товара";
 }
 
 <h1>@ViewBag.Title</h1>
 
-<p>Информация по количеству товара на складе поштучно</p>
+<p>Информация по количеству товара на складе поштучно и пообъемно</p>
+
+@foreach (var count in Model)
+{
+<dl class="row">
+    <dt class="col-sm-6">
+        <p>@count.Name</p>
+        <p>Статус этого товара на складе: <strong>@count.Status</strong></p>
+    </dt>
+    <dd class="col-sm-6">
+        Количество едениц товаров: @count.Count шт.
+        <div class="progress">
+            <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width: @count.CountPercent%; height: 20px"></div>
+        </div>
+        Суммарный объем пачек товаров: @count.Volume м3
+        <div class="progress">
+            <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width: @count.VolumePercent%; height: 20px"></div>
+        </div>
+        Количество пачек товаров: <strong>@count.Size</strong> шт.
+        <div class="progress">
+            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: @count.SizePercent%; height: 20px"></div>
+        </div>
+    </dd>
+</dl>
+}

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EasyWarehouse.Models.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace EasyWarehouse.Controllers
@@ -19,7 +20,8 @@ namespace EasyWarehouse.Controllers
 
         public IActionResult Products()
         {
-            return View();
+            var products = StaticData.Products.ToWebModel();
+            return View(products);
         }
 
         public IActionResult Places()

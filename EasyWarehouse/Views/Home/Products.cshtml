@@ -1,7 +1,39 @@
-﻿@{
+﻿@model IEnumerable<EasyWarehouse.WebModels.ProductWebModel>
+@{
     ViewBag.Title = "Товары";
 }
 
 <h1>@ViewBag.Title</h1>
 
 <p>Просмотр всех товаров на складе с местами их расположения</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Место хранения</th>
+            <th>Дата поступления</th>
+            <th>Количество в пачке, шт.</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var n = 1; }
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@(n++)</td>
+                <td>@product.Name</td>
+                <td>@product.PlaceName</td>
+                <td>@product.DateTime</td>
+                <td>@product.Count</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">Итого:</td>
+            <td>@Model.Count() пачек</td>
+        </tr>
+    </tfoot>
+</table>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using EasyWarehouse.WebModels;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EasyWarehouse.Models.Data
 {
@@ -101,5 +103,19 @@ namespace EasyWarehouse.Models.Data
             new Product {Id = 29, PlaceId = 4, ProductTypeId = 3, DateTime = DateTime.Now.AddDays(8).AddHours(20) },
             new Product {Id = 30, PlaceId = 4, ProductTypeId = 1, DateTime = DateTime.Now.AddDays(12).AddHours(8) },
         };
+
+        public static IEnumerable<ProductWebModel> ToWebModel (this IEnumerable<Product> products)
+        {
+            var productTupes = ProductTypes.ToArray();
+            var places = Places.ToArray();
+            var result = products.Select(p => new ProductWebModel
+            {
+                Name = productTupes[p.ProductTypeId - 1].Name,
+                PlaceName = places[p.PlaceId - 1].Name,
+                DateTime = p.DateTime,
+                Count = productTupes[p.ProductTypeId - 1].Count,
+            });
+            return result.OrderBy(p => p.Name);
+        }
     }
 }

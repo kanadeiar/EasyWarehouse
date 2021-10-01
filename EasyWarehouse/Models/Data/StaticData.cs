@@ -196,8 +196,19 @@ namespace EasyWarehouse.Models.Data
                 result.Status = "Переполнение";
             else
                 result.Status = "Норма";
-
             return result;
+        }
+
+        public static IEnumerable<ProductTypeWebModel> ToWebModel (this IEnumerable<ProductType> productTypes)
+        {
+            var result = productTypes.Select(p => new ProductTypeWebModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Volume = p.Volume,
+                Count = p.Count,
+            }).ToList();
+            return result.OrderBy(p => p.Name);
         }
     }
 }

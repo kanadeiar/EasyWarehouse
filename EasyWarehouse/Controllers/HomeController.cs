@@ -65,7 +65,8 @@ namespace EasyWarehouse.Controllers
 
         public IActionResult ProductTypes()
         {
-            return View();
+            var productTypes = StaticData.ProductTypes.ToWebModel();
+            return View(productTypes);
         }
 
         public IActionResult About()

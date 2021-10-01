@@ -1,0 +1,52 @@
+﻿@model EasyWarehouse.WebModels.PlaceDetailWebModel
+@{
+    ViewBag.Title = "Детально о месте хранения";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p>Просмотр полной детальной информации по месту хранения товаров</p>
+
+<a class="btn btn-info mb-4" asp-controller="Home" asp-action="Places">Обратно к просмотру мест хранения товаров</a>
+
+<dl class="row">
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Name)</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ProductsCount)</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.ProductsCount)</dd>
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Size)</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.Size)</dd>
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Status)</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.Status)</dd>
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ProductsVolume)</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.ProductsVolume)</dd>
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ProductsSum)</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.ProductsSum)</dd>
+</dl>
+
+<h3 class="text-center">Товары на этом месте хранения</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Дата поступления</th>
+            <th>Кол-во в пачке, шт.</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var n = 1; }
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@(n++)</td>
+                <td>@product.Name</td>
+                <td>@product.DateTime</td>
+                <td>@product.Count</td>
+                <td><a asp-controller="Home" asp-action="ProductDetails" asp-route-id="@product.Id">Просмотр</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

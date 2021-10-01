@@ -37,6 +37,12 @@ namespace EasyWarehouse.Controllers
             return View(places);
         }
 
+        public IActionResult PlaceDetails(int Id)
+        {
+            var place = StaticData.Places.SingleOrDefault(p => p.Id == Id).ToWebModel();
+            return View(place);
+        }
+
         public IActionResult FillingInfo()
         {
             return View();

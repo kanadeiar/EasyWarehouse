@@ -15,6 +15,8 @@ namespace EasyWarehouse.WebModels
         public string PlaceName { get; set; }
         [Display(Name = "Дата и время")]
         public DateTime DateTime { get; set; }
+        [Display(Name = "Объем товара, м3")]
+        public float Volume { get; set; }
         [Display(Name = "Количество")]
         public int Count { get; set; }
     }

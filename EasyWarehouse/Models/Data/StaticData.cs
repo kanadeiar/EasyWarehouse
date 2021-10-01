@@ -127,6 +127,7 @@ namespace EasyWarehouse.Models.Data
                 Name = productTupes[p.ProductTypeId - 1].Name,
                 PlaceName = places[p.PlaceId - 1].Name,
                 DateTime = p.DateTime,
+                Volume = productTupes[p.ProductTypeId - 1].Volume,
                 Count = productTupes[p.ProductTypeId - 1].Count,
             });
             return result.OrderBy(p => p.Name);
@@ -169,6 +170,32 @@ namespace EasyWarehouse.Models.Data
                 else 
                     place.Status = "Норма";
             }
+            return result.OrderBy(p => p.Name);
+        }
+
+        public static PlaceDetailWebModel ToWebModel (this Place place)
+        {
+            var productTupes = ProductTypes.ToArray();
+            var placeProducts = Products.Where(pr => pr.PlaceId == place.Id).ToWebModel();
+            var result = new PlaceDetailWebModel
+            {
+                Id = place.Id,
+                Name = place.Name,
+                ProductsCount = placeProducts.Count(),
+                Size = place.Size,
+                ProductsVolume = placeProducts.Sum(pr => pr.Volume),
+                ProductsSum = placeProducts.Sum(pr => pr.Count),
+                Products = placeProducts,
+            };
+            if (result.ProductsCount == 0)
+                result.Status = "Пусто";
+            else if (result.ProductsCount == result.Size)
+                result.Status = "Заполнен";
+            else if (result.ProductsCount >= result.Size)
+                result.Status = "Переполнение";
+            else
+                result.Status = "Норма";
+
             return result;
         }
     }

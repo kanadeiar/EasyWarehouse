@@ -14,7 +14,7 @@
         <tr>
             <th>№</th>
             <th>Название</th>
-            <th>Коли-во товара, шт.</th>
+            <th>Кол-во товара, шт.</th>
             <th>Вместимость, шт.</th>
             <th>Состояние</th>
             <th></th>
@@ -22,15 +22,15 @@
     </thead>
     <tbody>
         @{ var n = 1; }
-        @foreach (var product in Model)
+        @foreach (var place in Model)
         {
             <tr>
                 <td>@(n++)</td>
-                <td>@product.Name</td>
-                <td>@product.CountProducts</td>
-                <td>@product.Size</td>
-                <td>@product.Status</td>
-                <td><a asp-controller="Home" asp-action="ProductDetails" asp-route-id="@product.Id">Просмотр</a></td>
+                <td>@place.Name</td>
+                <td>@place.CountProducts</td>
+                <td>@place.Size</td>
+                <td>@place.Status</td>
+                <td><a asp-controller="Home" asp-action="PlaceDetails" asp-route-id="@place.Id">Просмотр</a></td>
             </tr>
         }
     </tbody>

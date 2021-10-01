@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Управление складом</title>
+    <title>@ViewData["Title"] - Склад кирпичей</title>
     
     <partial name="Partial/_StylesPartial"/>
 
@@ -12,7 +12,7 @@
     <header class="sticky-top">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom mb-4">
             <div class="container">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Управление складом</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Склад кирпичей</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -37,6 +37,14 @@
                                 <li><a class="dropdown-item text-dark" asp-controller="Home" asp-action="ProductTypes">Виды товаров</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-dark" asp-controller="Home" asp-action="GetMobile">Загрузить мобильное приложение</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Управление
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item text-dark" asp-controller="Operator" asp-action="Index">Оперативное управление</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

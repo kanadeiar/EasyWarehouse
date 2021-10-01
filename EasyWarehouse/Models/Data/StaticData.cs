@@ -110,12 +110,29 @@ namespace EasyWarehouse.Models.Data
             var places = Places.ToArray();
             var result = products.Select(p => new ProductWebModel
             {
+                Id = p.Id,
                 Name = productTupes[p.ProductTypeId - 1].Name,
                 PlaceName = places[p.PlaceId - 1].Name,
                 DateTime = p.DateTime,
                 Count = productTupes[p.ProductTypeId - 1].Count,
             });
             return result.OrderBy(p => p.Name);
+        }
+
+        public static ProductDetailWebModel ToWebModel (this Product product)
+        {
+            var productTupes = ProductTypes.ToArray();
+            var places = Places.ToArray();
+            var result = new ProductDetailWebModel
+            {
+                Id = product.Id,
+                Name = productTupes[product.ProductTypeId - 1].Name,
+                PlaceName = places[product.PlaceId - 1].Name,
+                DateTime = product.DateTime,
+                Volume = productTupes[product.ProductTypeId - 1].Volume,
+                Count = productTupes[product.ProductTypeId - 1].Count,
+            };
+            return result;
         }
     }
 }

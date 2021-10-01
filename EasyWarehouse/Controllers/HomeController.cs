@@ -1,6 +1,7 @@
 ﻿using EasyWarehouse.Models.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 
 namespace EasyWarehouse.Controllers
 {
@@ -22,6 +23,12 @@ namespace EasyWarehouse.Controllers
         {
             var products = StaticData.Products.ToWebModel();
             return View(products);
+        }
+
+        public IActionResult ProductDetails(int Id)
+        {
+            var product = StaticData.Products.SingleOrDefault(p => p.Id == Id).ToWebModel();
+            return View(product);
         }
 
         public IActionResult Places()

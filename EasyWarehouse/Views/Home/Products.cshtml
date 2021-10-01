@@ -16,7 +16,8 @@
             <th>Название</th>
             <th>Место хранения</th>
             <th>Дата поступления</th>
-            <th>Количество в пачке, шт.</th>
+            <th>Кол-во, шт.</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
                 <td>@product.PlaceName</td>
                 <td>@product.DateTime</td>
                 <td>@product.Count</td>
+                <td><a asp-controller="Home" asp-action="ProductDetails" asp-route-id="@product.Id">Просмотр</a></td>
             </tr>
         }
     </tbody>
@@ -36,6 +38,7 @@
         <tr>
             <td colspan="4">Итого:</td>
             <td>@Model.Count() пачек</td>
+            <th></th>
         </tr>
     </tfoot>
 </table>

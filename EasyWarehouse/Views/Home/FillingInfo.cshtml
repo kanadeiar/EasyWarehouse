@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<EasyWarehouse.WebModels.FillingInfoWebModel>
+@{
     ViewBag.Title = "Информация по заполнению склада";
 }
 
@@ -6,3 +7,35 @@
 
 <p>Информация по степени заполнения склада, проценты заполнения и оставшееся свободное место</p>
 
+
+@foreach (var filling in Model)
+{
+<dl class="row">
+    <dt class="col-sm-6">@filling.Name</dt>
+    <dd class="col-sm-6">
+        Заполнение - @filling.Filling%
+        <div class="progress">
+            @if (filling.Filling < 100)
+            {
+                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: @filling.Filling%; height: 20px"></div>
+            }
+            else
+            {
+                <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: @filling.Filling%; height: 20px"></div>
+            }
+        </div>
+    </dd>
+    <dd class="col-sm-4">
+        <p>Свободных мест: <strong>@filling.Free</strong> шт.</p>
+    </dd>
+    <dd class="col-sm-4">
+        <p>Занятых мест: <strong>@filling.Occupied</strong> шт.</p>
+    </dd>
+    <dd class="col-sm-4">
+        <p>Всего мест: <strong>@filling.Size</strong> шт.</p>
+    </dd>
+    <dd class="col-sm-4">
+        <p>Статус этого места на складе: <strong>@filling.Status</strong></p>
+    </dd>
+</dl>
+}

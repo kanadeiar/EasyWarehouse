@@ -45,7 +45,8 @@ namespace EasyWarehouse.Controllers
 
         public IActionResult FillingInfo()
         {
-            return View();
+            var fillings = StaticData.Places.ToFillingWebModel();
+            return View(fillings);
         }
 
         public IActionResult CountsInfo()

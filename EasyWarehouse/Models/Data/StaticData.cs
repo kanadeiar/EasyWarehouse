@@ -210,5 +210,33 @@ namespace EasyWarehouse.Models.Data
             }).ToList();
             return result.OrderBy(p => p.Name);
         }
+
+        public static IEnumerable<FillingInfoWebModel> ToFillingWebModel (this IEnumerable<Place> places)
+        {
+            var result = places.Select(p => new FillingInfoWebModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Size = p.Size,
+            }).ToList();
+            foreach (var place in result)
+            {
+                var placeProducts = Products.Where(pr => pr.PlaceId == place.Id).ToWebModel();
+                place.Occupied = placeProducts.Count();
+                place.Free = place.Size - place.Occupied;
+                if (place.Free < 0)
+                    place.Free = 0;
+                place.Filling = Convert.ToInt32( (place.Size != 0) ? (float)place.Occupied / (float)place.Size * 100.0f : 0.0f );
+                if (place.Occupied == 0)
+                    place.Status = "Пусто";
+                else if (place.Occupied == place.Size)
+                    place.Status = "Заполнен";
+                else if (place.Occupied >= place.Size)
+                    place.Status = "Переполнение";
+                else
+                    place.Status = "Норма";
+            }
+            return result;
+        }
     }
 }

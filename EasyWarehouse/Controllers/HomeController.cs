@@ -57,7 +57,8 @@ namespace EasyWarehouse.Controllers
 
         public IActionResult HistoryInfo()
         {
-            return View();
+            var history = StaticData.Products.ToHistoryWebModel();
+            return View(history);
         }
 
         public IActionResult ProductTypes()

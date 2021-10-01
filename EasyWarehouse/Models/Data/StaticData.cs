@@ -89,32 +89,32 @@ namespace EasyWarehouse.Models.Data
             new Product {Id = 5, PlaceId = 1, ProductTypeId = 1, DateTime = DateTime.Today.AddHours(7) },
             new Product {Id = 6, PlaceId = 1, ProductTypeId = 1, DateTime = DateTime.Today.AddHours(6) },
             new Product {Id = 7, PlaceId = 1, ProductTypeId = 1, DateTime = DateTime.Today.AddHours(5) },
-            new Product {Id = 8, PlaceId = 1, ProductTypeId = 4, DateTime = DateTime.Today.AddDays(5).AddHours(4) },
+            new Product {Id = 8, PlaceId = 1, ProductTypeId = 4, DateTime = DateTime.Today.AddDays(-5).AddHours(4) },
 
-            new Product {Id = 9, PlaceId = 2, ProductTypeId = 2, DateTime = DateTime.Today.AddDays(1).AddHours(7) },
-            new Product {Id = 10, PlaceId = 2, ProductTypeId = 2, DateTime = DateTime.Today.AddDays(1).AddHours(8) },
-            new Product {Id = 11, PlaceId = 2, ProductTypeId = 2, DateTime = DateTime.Today.AddDays(1).AddHours(9) },
-            new Product {Id = 12, PlaceId = 2, ProductTypeId = 2, DateTime = DateTime.Today.AddDays(1).AddHours(10) },
+            new Product {Id = 9, PlaceId = 2, ProductTypeId = 2, DateTime = DateTime.Today.AddDays(-1).AddHours(7) },
+            new Product {Id = 10, PlaceId = 2, ProductTypeId = 2, DateTime = DateTime.Today.AddDays(-1).AddHours(8) },
+            new Product {Id = 11, PlaceId = 2, ProductTypeId = 2, DateTime = DateTime.Today.AddDays(-1).AddHours(9) },
+            new Product {Id = 12, PlaceId = 2, ProductTypeId = 2, DateTime = DateTime.Today.AddDays(-1).AddHours(10) },
 
-            new Product {Id = 13, PlaceId = 3, ProductTypeId = 2, DateTime = DateTime.Now.AddDays(1).AddHours(20) },
-            new Product {Id = 14, PlaceId = 3, ProductTypeId = 2, DateTime = DateTime.Now.AddDays(1).AddHours(20) },
-            new Product {Id = 15, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(2).AddHours(8) },
-            new Product {Id = 16, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(2).AddHours(8) },
-            new Product {Id = 17, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(2).AddHours(8) },
-            new Product {Id = 18, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(2).AddHours(10) },
-            new Product {Id = 19, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(2).AddHours(10) },
-            new Product {Id = 20, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(2).AddHours(11) },
-            new Product {Id = 21, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(2).AddHours(12) },
-            new Product {Id = 22, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(2).AddHours(13) },
-            new Product {Id = 23, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(2).AddHours(14) },
+            new Product {Id = 13, PlaceId = 3, ProductTypeId = 2, DateTime = DateTime.Now.AddDays(-1).AddHours(20) },
+            new Product {Id = 14, PlaceId = 3, ProductTypeId = 2, DateTime = DateTime.Now.AddDays(-1).AddHours(20) },
+            new Product {Id = 15, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(-2).AddHours(8) },
+            new Product {Id = 16, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(-2).AddHours(8) },
+            new Product {Id = 17, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(-2).AddHours(8) },
+            new Product {Id = 18, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(-2).AddHours(10) },
+            new Product {Id = 19, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(-2).AddHours(10) },
+            new Product {Id = 20, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(-2).AddHours(11) },
+            new Product {Id = 21, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(-2).AddHours(12) },
+            new Product {Id = 22, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(-2).AddHours(13) },
+            new Product {Id = 23, PlaceId = 3, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(-2).AddHours(14) },
 
-            new Product {Id = 24, PlaceId = 4, ProductTypeId = 3, DateTime = DateTime.Now.AddDays(3).AddHours(8) },
-            new Product {Id = 25, PlaceId = 4, ProductTypeId = 3, DateTime = DateTime.Now.AddDays(3).AddHours(20) },
-            new Product {Id = 26, PlaceId = 4, ProductTypeId = 2, DateTime = DateTime.Now.AddDays(4).AddHours(8) },
-            new Product {Id = 27, PlaceId = 4, ProductTypeId = 3, DateTime = DateTime.Now.AddDays(5).AddHours(20) },
-            new Product {Id = 28, PlaceId = 4, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(8).AddHours(8) },
-            new Product {Id = 29, PlaceId = 4, ProductTypeId = 3, DateTime = DateTime.Now.AddDays(8).AddHours(20) },
-            new Product {Id = 30, PlaceId = 4, ProductTypeId = 1, DateTime = DateTime.Now.AddDays(12).AddHours(8) },
+            new Product {Id = 24, PlaceId = 4, ProductTypeId = 3, DateTime = DateTime.Now.AddDays(-3).AddHours(8) },
+            new Product {Id = 25, PlaceId = 4, ProductTypeId = 3, DateTime = DateTime.Now.AddDays(-3).AddHours(20) },
+            new Product {Id = 26, PlaceId = 4, ProductTypeId = 2, DateTime = DateTime.Now.AddDays(-4).AddHours(8) },
+            new Product {Id = 27, PlaceId = 4, ProductTypeId = 3, DateTime = DateTime.Now.AddDays(-5).AddHours(20) },
+            new Product {Id = 28, PlaceId = 4, ProductTypeId = 4, DateTime = DateTime.Now.AddDays(-8).AddHours(8) },
+            new Product {Id = 29, PlaceId = 4, ProductTypeId = 3, DateTime = DateTime.Now.AddDays(-8).AddHours(20) },
+            new Product {Id = 30, PlaceId = 4, ProductTypeId = 1, DateTime = DateTime.Now.AddDays(-12).AddHours(8) },
         };
 
         public static IEnumerable<ProductWebModel> ToWebModel (this IEnumerable<Product> products)
@@ -271,6 +271,17 @@ namespace EasyWarehouse.Models.Data
                     product.Status = "Товар есть на складе";
             }
             return result.OrderBy(p => p.Name);
+        }
+
+        public static IEnumerable<HistoryProductWebModel> ToHistoryWebModel (this IEnumerable<Product> products)
+        {
+            var history = products.GroupBy(p => p.DateTime.Date).ToList();
+            var result = history.OrderByDescending(h => h.Key).Select(h => new HistoryProductWebModel
+            {
+                DateTime = h.Key,
+                Products = h.OrderByDescending(p => p.DateTime).ToWebModel(),
+            });
+            return result;
         }
     }
 }

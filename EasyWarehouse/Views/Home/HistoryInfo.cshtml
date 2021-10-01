@@ -1,7 +1,23 @@
-﻿@{
+﻿@model IEnumerable<EasyWarehouse.WebModels.HistoryProductWebModel>
+@{
     ViewBag.Title = "Хронология товаров";
 }
 
 <h1>@ViewBag.Title</h1>
 
 <p>Информация по хронологии поступления товаров на склад</p>
+
+@foreach (var histor in Model)
+{
+<dl class="row">
+    <dt class="col-sm-6">@histor.DateTime.ToShortDateString()</dt>    
+</dl>
+    @foreach (var product in histor.Products)
+    {
+        <dl class="row">
+            <dd class="col-sm-4">@product.Name</dd>
+            <dd class="col-sm-4">@product.DateTime</dd>
+            <dd class="col-sm-4">@product.PlaceName</dd>
+        </dl>
+    }
+}

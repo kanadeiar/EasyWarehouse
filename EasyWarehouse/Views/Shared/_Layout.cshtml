@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Управление складом</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Управление складом</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,16 +20,26 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Products">Товары</a>
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="Products">Товары</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Places">Места</a>
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="Places">Места</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Информация
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item text-dark" asp-controller="Home" asp-action="FillingInfo">Заполненность склада</a></li>
+                                <li><a class="dropdown-item text-dark" asp-controller="Home" asp-action="VolumesInfo">Объемы товаров</a></li>
+                                <li><a class="dropdown-item text-dark" asp-controller="Home" asp-action="CountsInfo">Количество товара</a></li>
+                                <li><a class="dropdown-item text-dark" asp-controller="Home" asp-action="HistoryInfo">Хронология товаров</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-dark" asp-controller="Home" asp-action="ProductTypes">Виды товаров</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ProductTypes">Виды товаров</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="About">О приложении</a>
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="About">О приложении</a>
                         </li>
                     </ul>
                 </div>

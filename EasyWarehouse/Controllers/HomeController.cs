@@ -27,6 +27,26 @@ namespace EasyWarehouse.Controllers
             return View();
         }
 
+        public IActionResult FillingInfo()
+        {
+            return View();
+        }
+
+        public IActionResult VolumesInfo()
+        {
+            return View();
+        }
+
+        public IActionResult CountsInfo()
+        {
+            return View();
+        }
+
+        public IActionResult HistoryInfo()
+        {
+            return View();
+        }
+
         public IActionResult ProductTypes()
         {
             return View();

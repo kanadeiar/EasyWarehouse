@@ -36,6 +36,13 @@ namespace EasyWarehouse.Models.Data
                 Name = "Блок особенный с дырками 250x250x250 в пачке",
                 Volume = 4.6f,
                 Count = 50,
+            },
+            new ProductType
+            {
+                Id = 5,
+                Name = "Блок особенный с дырками 120x120x50 в пачке",
+                Volume = 3.6f,
+                Count = 290,
             }
         };
 
@@ -64,6 +71,12 @@ namespace EasyWarehouse.Models.Data
                 Id = 4,
                 Name = "Холодный стеллаж",
                 Size = 80,
+            },
+            new Place
+            {
+                Id = 5,
+                Name = "Резервный стеллаж",
+                Size = 20,
             }
         };
 
@@ -132,6 +145,30 @@ namespace EasyWarehouse.Models.Data
                 Volume = productTupes[product.ProductTypeId - 1].Volume,
                 Count = productTupes[product.ProductTypeId - 1].Count,
             };
+            return result;
+        }
+
+        public static IEnumerable<PlaceWebModel> ToWebModel (this IEnumerable<Place> places)
+        {
+            var productTupes = ProductTypes.ToArray();
+            var result = places.Select(p => new PlaceWebModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                CountProducts = Products.Where(pr => pr.PlaceId == p.Id).Count(),
+                Size = p.Size,
+            }).ToList();
+            foreach (var place in result)
+            {
+                if (place.CountProducts == 0)
+                    place.Status = "Пусто";
+                else if (place.CountProducts == place.Size)
+                    place.Status = "Заполнен";
+                else if (place.CountProducts >= place.Size)
+                    place.Status = "Переполнение";
+                else 
+                    place.Status = "Норма";
+            }
             return result;
         }
     }

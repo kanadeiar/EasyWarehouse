@@ -33,7 +33,8 @@ namespace EasyWarehouse.Controllers
 
         public IActionResult Places()
         {
-            return View();
+            var places = StaticData.Places.ToWebModel();
+            return View(places);
         }
 
         public IActionResult FillingInfo()

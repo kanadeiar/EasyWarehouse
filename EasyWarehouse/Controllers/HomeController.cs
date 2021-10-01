@@ -48,11 +48,6 @@ namespace EasyWarehouse.Controllers
             return View();
         }
 
-        public IActionResult VolumesInfo()
-        {
-            return View();
-        }
-
         public IActionResult CountsInfo()
         {
             return View();
@@ -67,6 +62,11 @@ namespace EasyWarehouse.Controllers
         {
             var productTypes = StaticData.ProductTypes.ToWebModel();
             return View(productTypes);
+        }
+
+        public IActionResult GetMobile()
+        {
+            return View();
         }
 
         public IActionResult About()

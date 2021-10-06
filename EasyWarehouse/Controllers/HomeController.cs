@@ -16,7 +16,10 @@ namespace EasyWarehouse.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            ViewBag.Fillings = StaticData.Places.ToFillingWebModel();
+            ViewBag.Counts = StaticData.ProductTypes.ToCountsWebModel();
+            var products = StaticData.Products.Where(p => p.DateTime >= System.DateTime.Today).ToWebModel().OrderBy(p => p.DateTime);
+            return View(products);
         }
 
         public IActionResult Products()
@@ -65,11 +68,6 @@ namespace EasyWarehouse.Controllers
         {
             var productTypes = StaticData.ProductTypes.ToWebModel();
             return View(productTypes);
-        }
-
-        public IActionResult GetMobile()
-        {
-            return View();
         }
 
         public IActionResult About()

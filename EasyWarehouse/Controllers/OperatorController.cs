@@ -22,5 +22,10 @@ namespace EasyWarehouse.Controllers
         {
             return View();
         }
+
+        public IActionResult GetMobile()
+        {
+            return View();
+        }
     }
 }

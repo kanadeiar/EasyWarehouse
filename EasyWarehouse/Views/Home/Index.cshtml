@@ -1,11 +1,73 @@
-﻿@{
+﻿@model IEnumerable<EasyWarehouse.WebModels.ProductWebModel>
+@{
     ViewBag.Title = "Склад кирпичей";
 }
 
-<div class="text-center">
-    <h1 class="display-2"><strong>@ViewBag.Title</strong></h1>    
-
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3"><strong>@ViewBag.Title</strong></h1>
+        <p class="lead">Приложение управление складом кирпичей.</p>
+        <hr class="my-4">
+        <p>Просмотр общей итоговой информации по складу в обобщенном виде.</p>
+    </div>
 </div>
 
-<p>Просмотр общей итоговой информации по складу в обобщенном виде</p>
+<h3 class="display-4">Заполнение склада</h3>
+
+@foreach (var filling in ViewBag.Fillings)
+{
+    <dl class="row">
+        <dt class="col-sm-6">@filling.Name</dt>
+        <dd class="col-sm-6">
+            Заполнение - @filling.Filling%
+            <div class="progress">
+                @if (filling.Filling < 100)
+                {
+                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: @filling.Filling%; height: 20px"></div>
+                }
+                else
+                {
+                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: @filling.Filling%; height: 20px"></div>
+                }
+            </div>
+        </dd>
+    </dl>
+}
+
+<h3 class="display-4">Товары на складе</h3>
+
+@foreach (var count in ViewBag.Counts)
+{
+    <dl class="row">
+        <dd class="col-sm-6">
+            <p>@count.Name</p>            
+        </dd>
+        <dd class="col-sm-6">
+            <p>Статус этого товара на складе: <strong>@count.Status</strong></p>
+        </dd>
+    </dl>
+}
+
+<h3 class="display-4">Поступление товаров за сегодня</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Дата поступления</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var n = 1; }
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@(n++)</td>
+                <td>@product.Name</td>
+                <td>@product.DateTime</td>
+            </tr>
+        }
+    </tbody>
+</table>
 

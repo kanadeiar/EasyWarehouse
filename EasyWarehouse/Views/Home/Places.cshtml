@@ -1,0 +1,44 @@
+﻿@model IEnumerable<EasyWarehouse.WebModels.PlaceWebModel>
+@{
+    ViewBag.Title = "Места";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p>Просмотр мест хранения товаров</p>
+
+<p>Фильтрация, сортировка и пагинация мест хранения товаров</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Кол-во товара, шт.</th>
+            <th>Вместимость, шт.</th>
+            <th>Состояние</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var n = 1; }
+        @foreach (var place in Model)
+        {
+            <tr>
+                <td>@(n++)</td>
+                <td>@place.Name</td>
+                <td>@place.CountProducts</td>
+                <td>@place.Size</td>
+                <td>@place.Status</td>
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="PlaceDetails" asp-route-id="@place.Id">Просмотр</a></td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">Итого:</td>
+            <td>@Model.Count() мест</td>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>

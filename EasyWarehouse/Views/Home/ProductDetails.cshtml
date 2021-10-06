@@ -1,0 +1,28 @@
+﻿@model EasyWarehouse.WebModels.ProductDetailWebModel
+@{
+    ViewBag.Title = "Детально о товаре";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p>Просмотр полной детальной информации по товару</p>
+
+<a class="btn btn-info mb-4" asp-controller="Home" asp-action="Products">Просмотр товаров</a>
+
+<div class="row mb-2 justify-content-center">
+    <img src="~/img/block.png" alt="Изображение блока" width="300" />
+</div>
+
+<dl class="row">
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Name)</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.PlaceName)</dt>
+    <dd class="col-sm-8"><a class="btn btn-info" asp-controller="Home" asp-action="PlaceDetails" asp-route-id="@Model.PlaceId">@Html.DisplayFor(model => model.PlaceName)</a></dd>
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DateTime)</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.DateTime)</dd>
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Volume)</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.Volume)</dd>
+    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Count)</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.Count)</dd>
+</dl>
+

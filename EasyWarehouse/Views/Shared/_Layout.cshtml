@@ -57,6 +57,7 @@
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -65,11 +66,11 @@
 
     <footer class="border-top footer text-muted bg-dark">
         <div class="container">
-            &copy; 2021 - kanadeiar <a href="https://github.com/kanadeiar/EasyWarehouse">github</a>
+            &copy; 2021 - kanadeiar <a class="btn text-light" href="https://github.com/kanadeiar/EasyWarehouse">github</a>
         </div>
     </footer>
 
-    <partial name="Partial/_ScriptsPartial"/>
+    <partial name="Partial/_ScriptsPartial" />
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

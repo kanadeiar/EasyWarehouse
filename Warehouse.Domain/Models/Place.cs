@@ -1,4 +1,4 @@
-﻿namespace EasyWarehouse.Models
+﻿namespace Warehouse.Domain.Models
 {
     /// <summary> Место установки товаров </summary>
     public class Place

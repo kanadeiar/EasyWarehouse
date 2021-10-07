@@ -1,4 +1,4 @@
-﻿namespace EasyWarehouse.Models
+﻿namespace Warehouse.Domain.Models
 {
     /// <summary> Тип товара </summary>
     public class ProductType

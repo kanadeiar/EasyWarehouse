@@ -4,20 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EasyWarehouse.WebModels
+namespace Warehouse.Domain.WebModels
 {
-    public class ProductWebModel
+    public class ProductTypeWebModel
     {
         public int Id { get; set; }
         [Display(Name = "Название")]
         public string Name { get; set; }
-        [Display(Name = "Место")]
-        public string PlaceName { get; set; }
-        [Display(Name = "Дата и время")]
-        public DateTime DateTime { get; set; }
-        [Display(Name = "Объем товара, м3")]
+        [Display(Name = "Объем, м3")]
         public float Volume { get; set; }
-        [Display(Name = "Количество")]
+        [Display(Name = "Кол-во, шт.")]
         public int Count { get; set; }
     }
 }

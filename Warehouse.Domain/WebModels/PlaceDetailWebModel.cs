@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EasyWarehouse.WebModels
+namespace Warehouse.Domain.WebModels
 {
     public class PlaceDetailWebModel
     {

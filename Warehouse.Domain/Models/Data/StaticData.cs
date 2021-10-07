@@ -1,13 +1,14 @@
-﻿using EasyWarehouse.WebModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Warehouse.Domain.Models;
+using Warehouse.Domain.WebModels;
 
-namespace EasyWarehouse.Models.Data
+namespace Warehouse.Domain.Models.Data
 {
     public static class StaticData
     {
-        public static IEnumerable<ProductType> ProductTypes => new List<ProductType>() 
+        public static IEnumerable<ProductType> ProductTypes => new List<ProductType>()
         {
             new ProductType
             {
@@ -117,7 +118,7 @@ namespace EasyWarehouse.Models.Data
             new Product {Id = 30, PlaceId = 4, ProductTypeId = 1, DateTime = DateTime.Now.AddDays(-12).AddHours(8) },
         };
 
-        public static IEnumerable<ProductWebModel> ToWebModel (this IEnumerable<Product> products)
+        public static IEnumerable<ProductWebModel> ToWebModel(this IEnumerable<Product> products)
         {
             var productTupes = ProductTypes.ToArray();
             var places = Places.ToArray();
@@ -133,7 +134,7 @@ namespace EasyWarehouse.Models.Data
             return result.OrderBy(p => p.Name);
         }
 
-        public static ProductDetailWebModel ToWebModel (this Product product)
+        public static ProductDetailWebModel ToWebModel(this Product product)
         {
             var productTupes = ProductTypes.ToArray();
             var places = Places.ToArray();
@@ -150,7 +151,7 @@ namespace EasyWarehouse.Models.Data
             return result;
         }
 
-        public static IEnumerable<PlaceWebModel> ToWebModel (this IEnumerable<Place> places)
+        public static IEnumerable<PlaceWebModel> ToWebModel(this IEnumerable<Place> places)
         {
             var productTupes = ProductTypes.ToArray();
             var result = places.Select(p => new PlaceWebModel
@@ -168,13 +169,13 @@ namespace EasyWarehouse.Models.Data
                     place.Status = "Заполнен";
                 else if (place.CountProducts >= place.Size)
                     place.Status = "Переполнение";
-                else 
+                else
                     place.Status = "Норма";
             }
             return result.OrderBy(p => p.Name);
         }
 
-        public static PlaceDetailWebModel ToWebModel (this Place place)
+        public static PlaceDetailWebModel ToWebModel(this Place place)
         {
             var productTupes = ProductTypes.ToArray();
             var placeProducts = Products.Where(pr => pr.PlaceId == place.Id).ToWebModel();
@@ -199,7 +200,7 @@ namespace EasyWarehouse.Models.Data
             return result;
         }
 
-        public static IEnumerable<ProductTypeWebModel> ToWebModel (this IEnumerable<ProductType> productTypes)
+        public static IEnumerable<ProductTypeWebModel> ToWebModel(this IEnumerable<ProductType> productTypes)
         {
             var result = productTypes.Select(p => new ProductTypeWebModel
             {
@@ -211,7 +212,7 @@ namespace EasyWarehouse.Models.Data
             return result.OrderBy(p => p.Name);
         }
 
-        public static IEnumerable<FillingInfoWebModel> ToFillingWebModel (this IEnumerable<Place> places)
+        public static IEnumerable<FillingInfoWebModel> ToFillingWebModel(this IEnumerable<Place> places)
         {
             var result = places.Select(p => new FillingInfoWebModel
             {
@@ -226,7 +227,7 @@ namespace EasyWarehouse.Models.Data
                 place.Free = place.Size - place.Occupied;
                 if (place.Free < 0)
                     place.Free = 0;
-                place.Filling = Convert.ToInt32( (place.Size != 0) ? (float)place.Occupied / (float)place.Size * 100.0f : 0.0f );
+                place.Filling = Convert.ToInt32(place.Size != 0 ? (float)place.Occupied / (float)place.Size * 100.0f : 0.0f);
                 if (place.Occupied == 0)
                     place.Status = "Пусто";
                 else if (place.Occupied == place.Size)
@@ -239,7 +240,7 @@ namespace EasyWarehouse.Models.Data
             return result;
         }
 
-        public static IEnumerable<CountsInfoWebModel> ToCountsWebModel (this IEnumerable<ProductType> productTypes)
+        public static IEnumerable<CountsInfoWebModel> ToCountsWebModel(this IEnumerable<ProductType> productTypes)
         {
             var result = productTypes.Select(p => new CountsInfoWebModel
             {
@@ -263,9 +264,9 @@ namespace EasyWarehouse.Models.Data
                 product.SizePercent = Convert.ToInt32(product.Size / (float)maxSize * 100.0f);
                 if (product.Size == 0)
                     product.Status = "Отсутствует товар на складе";
-                else if (product.Size >= (maxSize * 0.8))
+                else if (product.Size >= maxSize * 0.8)
                     product.Status = "Избыток товара на складе";
-                else if (product.Size <= (maxSize * 0.2))
+                else if (product.Size <= maxSize * 0.2)
                     product.Status = "Недостаток товара на складе";
                 else
                     product.Status = "Товар есть на складе";
@@ -273,7 +274,7 @@ namespace EasyWarehouse.Models.Data
             return result.OrderBy(p => p.Name);
         }
 
-        public static IEnumerable<HistoryProductWebModel> ToHistoryWebModel (this IEnumerable<Product> products)
+        public static IEnumerable<HistoryProductWebModel> ToHistoryWebModel(this IEnumerable<Product> products)
         {
             var history = products.GroupBy(p => p.DateTime.Date).ToList();
             var result = history.OrderByDescending(h => h.Key).Select(h => new HistoryProductWebModel

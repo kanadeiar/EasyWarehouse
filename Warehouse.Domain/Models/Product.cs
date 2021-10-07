@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EasyWarehouse.Models
+namespace Warehouse.Domain.Models
 {
     /// <summary> Товар </summary>
     public class Product

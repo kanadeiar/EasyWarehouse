@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EasyWarehouse.WebModels
+namespace Warehouse.Domain.WebModels
 {
     public class HistoryProductWebModel
     {

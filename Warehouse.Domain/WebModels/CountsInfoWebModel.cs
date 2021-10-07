@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace EasyWarehouse.WebModels
+namespace Warehouse.Domain.WebModels
 {
     public class CountsInfoWebModel
     {

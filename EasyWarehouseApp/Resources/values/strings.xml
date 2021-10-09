@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">EasyWarehouseApp</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Склад кирпичей</string>
+    <string name="action_settings">Настройки</string>
 </resources>

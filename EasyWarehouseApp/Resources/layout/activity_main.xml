@@ -6,48 +6,24 @@
     android:orientation="vertical"
     android:padding="6dp">
     <Button
-        android:id="@+id/buttonScan"
-        android:text="Запустить сканирование"
+        android:id="@+id/buttonAdd"
+        android:text="Добавить товар на склад"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <TextView
-        android:text="Идентификатор:"
+    <Button
+        android:id="@+id/buttonDelete"
+        android:text="Удалить товар со склада"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/textViewId"
-        android:text="0"
-        android:textSize="26dp"
+    <Button
+        android:id="@+id/buttonProducts"
+        android:text="Информация по товаром"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:text="Название товара:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/textViewName"
-        android:text="Название товара"
-        android:textSize="26dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:text="Место размещения товара:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/textViewPlace"
-        android:text="Место"
-        android:textSize="26dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:text="Дата и время размещения товара:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/textViewDateTime"
-        android:text="Дата"
-        android:textSize="26dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="100dp"/>
+    <Button
+      android:id="@+id/buttonPlaces"
+      android:text="Информация по местам хранения"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"/>
+
 </LinearLayout>

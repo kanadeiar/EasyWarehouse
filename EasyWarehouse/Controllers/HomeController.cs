@@ -1,4 +1,4 @@
-﻿using EasyWarehouse.Models.Data;
+﻿using Warehouse.Domain.Models.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Linq;

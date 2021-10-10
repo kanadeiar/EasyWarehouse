@@ -13,8 +13,52 @@
         android:orientation="vertical"
         android:padding="6dp">
         <TextView
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:text="Добавить товар на склад с местом хранения товара."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/buttonAddScan"
+            android:text="Сканировать QR"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"/>
+        <TextView
+            android:text="Идентификатор товара:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/editTextId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="Название товара:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="Место хранения товара:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/editTextPlace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="Дата и время поступления:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <Button
+            android:text="Добавить товар"
+            android:enabled="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CheeseBind;
+using Warehouse.Domain.Models.Data;
 
 namespace EasyWarehouseApp
 {
@@ -19,6 +20,8 @@ namespace EasyWarehouseApp
 
         [BindView(Resource.Id.toolbar)]
         private Toolbar toolbar;
+        [BindView(Resource.Id.listViewPlaces)]
+        private ListView listViewPlaces;
 
         #endregion
 
@@ -36,6 +39,11 @@ namespace EasyWarehouseApp
 
             #endregion
 
+            var places = StaticData.Places.ToWebModel()
+                .Select(p => $"{p.Name} | {p.CountProducts} | {p.Size}");
+            var placesAdapter =
+                new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, places.ToArray());
+            listViewPlaces.Adapter = placesAdapter;
 
         }
 

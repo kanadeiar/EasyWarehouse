@@ -35,7 +35,7 @@ namespace EasyWarehouseApp
             #endregion
 
             var products = StaticData.Products.ToWebModel()
-                .Select(p => $"{p.Name} | {p.PlaceName} | {p.DateTime.ToString("dd MMMM yyyy hh:mm")}");
+                .Select(p => $"{p.Name} | {p.PlaceName} | {p.DateTime.ToString("dd MMMM yyyy HH:mm")}");
             var productsAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, products.ToArray());
             listViewProducts.Adapter = productsAdapter;
 

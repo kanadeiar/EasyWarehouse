@@ -1,6 +1,8 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Widget;
 using AndroidX.AppCompat.App;
 using CheeseBind;
 
@@ -11,7 +13,14 @@ namespace EasyWarehouseApp
     {
         #region Разметка
 
-        
+        [BindView(Resource.Id.buttonProducts)]
+        private Button buttonProducts;
+        [BindView(Resource.Id.buttonPlaces)]
+        private Button buttonPlaces;
+        [BindView(Resource.Id.buttonAdd)]
+        private Button buttonAdd;
+        [BindView(Resource.Id.buttonDelete)]
+        private Button buttonDelete;
 
         #endregion
 
@@ -21,6 +30,28 @@ namespace EasyWarehouseApp
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
             Cheeseknife.Bind(this);
+
+            buttonProducts.Click += (o, e) =>
+            {
+                var productsIntent = new Intent(this, typeof(ProductsActivity));
+                StartActivity(productsIntent);
+            };
+            buttonPlaces.Click += (o, e) =>
+            {
+                var placesIntent = new Intent(this, typeof(PlacesActivity));
+                StartActivity(placesIntent);
+            };
+            buttonAdd.Click += (o, e) =>
+            {
+                var addIntent = new Intent(this, typeof(AddActivity));
+                StartActivity(addIntent);
+            };
+            buttonDelete.Click += (o, e) =>
+            {
+                var deleteIntent = new Intent(this, typeof(DeleteActivity));
+                StartActivity(deleteIntent);
+            };
+
 
         }
 

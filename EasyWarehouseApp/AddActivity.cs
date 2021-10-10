@@ -57,7 +57,6 @@ namespace EasyWarehouseApp
             {
                 RunScan();
             };
-
         }
 
         private async void RunScan()

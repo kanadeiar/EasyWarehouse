@@ -9,12 +9,12 @@
         android:id="@+id/buttonAdd"
         android:text="Добавить товар на склад"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="90dp"/>
     <Button
         android:id="@+id/buttonDelete"
         android:text="Удалить товар со склада"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="90dp"/>
     <Button
         android:id="@+id/buttonProducts"
         android:text="Информация по товаром"

@@ -13,21 +13,21 @@
         android:orientation="vertical"
         android:padding="6dp">
         <TextView
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:text="Информация по местам хранения товаров. Информация отображается в виде списка."
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
-          android:textSize="16dp"
-          android:layout_marginTop="10dp"
-          android:text="Название места | Количество | Мест"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:textColor="@android:color/black"/>
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:text="Название места | Количество | Мест"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"/>
         <ListView
-          android:id="@+id/listViewPlaces"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"/>
+            android:id="@+id/listViewPlaces"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

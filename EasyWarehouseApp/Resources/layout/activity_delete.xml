@@ -18,40 +18,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <Button
-          android:id="@+id/buttonDeleteScan"
-          android:text="Сканировать QR"
-          android:layout_width="match_parent"
-          android:layout_height="90dp"/>
+            android:id="@+id/buttonDeleteScan"
+            android:text="Сканировать QR"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"/>
         <TextView
-          android:text="Идентификатор товара:"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"/>
+            android:text="Идентификатор товара:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
         <EditText
-          android:id="@+id/editTextId"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"/>
+            android:id="@+id/editTextId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
         <TextView
-          android:text="Название товара:"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"/>
+            android:text="Название товара:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
         <EditText
-          android:id="@+id/editTextName"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"/>
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
         <TextView
-          android:text="Место хранения товара:"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"/>
+            android:text="Место хранения товара:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
         <EditText
-          android:id="@+id/editTextPlace"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"/>
+            android:id="@+id/editTextPlace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <Button
-          android:text="Удалить товар"
-          android:enabled="false"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"/>
+            android:text="Удалить товар"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
